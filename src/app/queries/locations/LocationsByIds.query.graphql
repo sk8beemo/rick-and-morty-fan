@@ -1,0 +1,11 @@
+#import "./Location.fragment.graphql"
+#import "../characters/Character.fragment.graphql"
+
+query LocationsByIds($ids: [ID!]!) {
+  locationsByIds(ids: $ids) {
+    ...LocationBase
+    residents {
+      ...CharacterBase
+    }
+  }
+}

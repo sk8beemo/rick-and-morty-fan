@@ -1,0 +1,19 @@
+#import "./Episode.fragment.graphql"
+#import "../characters/Character.fragment.graphql"
+
+query Episodes($page: Int, $filter: FilterEpisode) {
+  episodes(page: $page, filter: $filter) {
+    info {
+      count
+      pages
+      next
+      prev
+    }
+    results {
+      ...EpisodeBase
+      characters {
+        ...CharacterBase
+      }
+    }
+  }
+}

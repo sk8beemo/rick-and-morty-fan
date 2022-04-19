@@ -1,0 +1,11 @@
+#import "./Episode.fragment.graphql"
+#import "../characters/Character.fragment.graphql"
+
+query EpisodesByIds($ids: [ID!]!) {
+  episodesByIds(ids: $ids) {
+    ...EpisodeBase
+    characters {
+      ...CharacterBase
+    }
+  }
+}

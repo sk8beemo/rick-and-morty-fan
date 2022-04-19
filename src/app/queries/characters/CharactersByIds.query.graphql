@@ -1,0 +1,18 @@
+#import "./Character.fragment.graphql"
+#import "../locations/Location.fragment.graphql"
+#import "../episodes/Episode.fragment.graphql"
+
+query CharactersByIds($ids: [ID!]!) {
+  charactersByIds(ids: $ids) {
+    ...CharacterBase
+    location {
+      ...LocationBase
+    }
+    origin {
+      ...LocationBase
+    }
+    episode {
+      ...EpisodeBase
+    }
+  }
+}

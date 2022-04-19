@@ -1,0 +1,26 @@
+#import "./Character.fragment.graphql"
+#import "../locations/Location.fragment.graphql"
+#import "../episodes/Episode.fragment.graphql"
+
+query Characters($page: Int, $filter: FilterCharacter) {
+  characters(page: $page, filter: $filter) {
+    info {
+      count
+      pages
+      next
+      prev
+    }
+    results {
+      ...CharacterBase
+      location {
+        ...LocationBase
+      }
+      origin {
+        ...LocationBase
+      }
+      episode {
+        ...EpisodeBase
+      }
+    }
+  }
+}

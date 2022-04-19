@@ -1,0 +1,19 @@
+#import "./Location.fragment.graphql"
+#import "../characters/Character.fragment.graphql"
+
+query Locations($page: Int, $filter: FilterLocation) {
+  locations(page: $page, filter: $filter) {
+    info {
+      count
+      pages
+      next
+      prev
+    }
+    results {
+      ...LocationBase
+      residents {
+        ...CharacterBase
+      }
+    }
+  }
+}
